@@ -4,6 +4,7 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/splashFragment">
 
+    <!-- SPLASH -->
     <fragment
         android:id="@+id/splashFragment"
         android:name="com.jaimes.nodocivico.ui.splash.SplashFragment"
@@ -14,6 +15,7 @@
             app:destination="@id/loginFragment" />
     </fragment>
 
+    <!-- LOGIN -->
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.jaimes.nodocivico.ui.login.LoginFragment"
@@ -24,9 +26,63 @@
             app:destination="@id/homeFragment" />
     </fragment>
 
+    <!-- HOME -->
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.jaimes.nodocivico.ui.home.HomeFragment"
-        android:label="Home" />
+        android:label="Home">
+
+        <action
+            android:id="@+id/action_homeFragment_to_reportListFragment"
+            app:destination="@id/reportListFragment" />
+
+        <action
+            android:id="@+id/action_homeFragment_to_syncStatusFragment"
+            app:destination="@id/syncStatusFragment" />
+    </fragment>
+
+    <!-- REPORT LIST -->
+    <fragment
+        android:id="@+id/reportListFragment"
+        android:name="com.jaimes.nodocivico.ui.report.ReportListFragment"
+        android:label="Report List">
+
+        <action
+            android:id="@+id/action_reportListFragment_to_reportDetailFragment"
+            app:destination="@id/reportDetailFragment" />
+
+        <action
+            android:id="@+id/action_reportListFragment_to_reportCreateFragment"
+            app:destination="@id/reportCreateFragment" />
+    </fragment>
+
+    <!-- REPORT DETAIL -->
+    <fragment
+        android:id="@+id/reportDetailFragment"
+        android:name="com.jaimes.nodocivico.ui.report.ReportDetailFragment"
+        android:label="Report Detail">
+
+        <action
+            android:id="@+id/action_reportDetailFragment_to_reportEditFragment"
+            app:destination="@id/reportEditFragment" />
+    </fragment>
+
+    <!-- REPORT CREATE -->
+    <fragment
+        android:id="@+id/reportCreateFragment"
+        android:name="com.jaimes.nodocivico.ui.report.CreateReportFragment"
+        android:label="Create Report" />
+
+    <!-- REPORT EDIT -->
+    <fragment
+        android:id="@+id/reportEditFragment"
+        android:name="com.jaimes.nodocivico.ui.report.EditReportFragment"
+        android:label="Edit Report" />
+
+    <!-- SYNC STATUS -->
+    <fragment
+        android:id="@+id/syncStatusFragment"
+        android:name="com.jaimes.nodocivico.ui.sync.SyncStatusFragment"
+        android:label="Sync Status" />
 
 </navigation>
