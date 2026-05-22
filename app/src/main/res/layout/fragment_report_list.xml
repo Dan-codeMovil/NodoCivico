@@ -13,16 +13,25 @@
         android:textStyle="bold"
         android:layout_marginBottom="16dp" />
 
+    <!-- Botón para crear reporte -->
+    <Button
+        android:id="@+id/btnCreate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Crear reporte" />
+
+    <!-- Botón para abrir detalle -->
     <Button
         android:id="@+id/btnOpenDetail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Abrir detalle de ejemplo" />
+        android:text="Abrir detalle de ejemplo"
+        android:layout_marginTop="8dp"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/recyclerReports"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_marginTop="12dp"/>
 
 </LinearLayout>
