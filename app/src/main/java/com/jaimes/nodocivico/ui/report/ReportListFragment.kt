@@ -12,5 +12,17 @@ class ReportListFragment : Fragment(R.layout.fragment_report_list) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        btnCreate.setOnClickListener {
+            findNavController().navigate(
+                R.id.action_reportListFragment_to_reportCreateFragment
+            )
+        }
+
+        btnDetail.setOnClickListener {
+            findNavController().navigate(
+                R.id.action_reportListFragment_to_reportDetailFragment
+            )
+        }
+
     }
 }
