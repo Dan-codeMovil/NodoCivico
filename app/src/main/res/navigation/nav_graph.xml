@@ -33,6 +33,10 @@
         android:label="Home">
 
         <action
+            android:id="@+id/action_homeFragment_to_reportCreateFragment"
+            app:destination="@id/reportCreateFragment" />
+
+        <action
             android:id="@+id/action_homeFragment_to_reportListFragment"
             app:destination="@id/reportListFragment" />
 
@@ -45,22 +49,18 @@
     <fragment
         android:id="@+id/reportListFragment"
         android:name="com.jaimes.nodocivico.ui.report.ReportListFragment"
-        android:label="Report List">
+        android:label="Reportes">
 
         <action
             android:id="@+id/action_reportListFragment_to_reportDetailFragment"
             app:destination="@id/reportDetailFragment" />
-
-        <action
-            android:id="@+id/action_reportListFragment_to_reportCreateFragment"
-            app:destination="@id/reportCreateFragment" />
     </fragment>
 
     <!-- Report Detail -->
     <fragment
         android:id="@+id/reportDetailFragment"
         android:name="com.jaimes.nodocivico.ui.report.ReportDetailFragment"
-        android:label="Report Detail">
+        android:label="Detalle">
 
         <action
             android:id="@+id/action_reportDetailFragment_to_reportEditFragment"
@@ -71,18 +71,18 @@
     <fragment
         android:id="@+id/reportCreateFragment"
         android:name="com.jaimes.nodocivico.ui.report.ReportCreateFragment"
-        android:label="Create Report" />
+        android:label="Crear Reporte" />
 
     <!-- Report Edit -->
     <fragment
         android:id="@+id/reportEditFragment"
         android:name="com.jaimes.nodocivico.ui.report.ReportEditFragment"
-        android:label="Edit Report" />
+        android:label="Editar Reporte" />
 
     <!-- Sync -->
     <fragment
         android:id="@+id/syncStatusFragment"
         android:name="com.jaimes.nodocivico.ui.sync.SyncStatusFragment"
-        android:label="Sync Status" />
+        android:label="Sincronización" />
 
 </navigation>
