@@ -12,10 +12,22 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val btnReports = view.findViewById<Button>(R.id.btnReports)
-        val btnSync = view.findViewById<Button>(R.id.btnSync)
+        val btnCreateReport =
+            view.findViewById<Button>(R.id.btnCreateReport)
 
-        btnReports.setOnClickListener {
+        val btnViewReports =
+            view.findViewById<Button>(R.id.btnViewReports)
+
+        val btnSync =
+            view.findViewById<Button>(R.id.btnSync)
+
+        btnCreateReport.setOnClickListener {
+            findNavController().navigate(
+                R.id.action_homeFragment_to_reportCreateFragment
+            )
+        }
+
+        btnViewReports.setOnClickListener {
             findNavController().navigate(
                 R.id.action_homeFragment_to_reportListFragment
             )
