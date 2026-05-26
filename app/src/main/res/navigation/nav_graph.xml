@@ -54,6 +54,11 @@
         <action
             android:id="@+id/action_reportListFragment_to_reportDetailFragment"
             app:destination="@id/reportDetailFragment" />
+
+        <action
+            android:id="@+id/action_reportListFragment_to_reportCreateFragment"
+            app:destination="@id/reportCreateFragment" />
+
     </fragment>
 
     <!-- Report Detail -->
@@ -72,6 +77,7 @@
         android:id="@+id/reportCreateFragment"
         android:name="com.jaimes.nodocivico.ui.report.ReportCreateFragment"
         android:label="Crear Reporte" />
+
 
     <!-- Report Edit -->
     <fragment
