@@ -7,12 +7,12 @@ plugins {
 
 android {
     namespace 'com.jaimes.nodocivico'
-    compileSdk 35
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.jaimes.nodocivico"
         minSdk 24
-        targetSdk 35
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -69,8 +69,6 @@ dependencies {
     // Room
     implementation 'androidx.room:room-runtime:2.6.1'
     implementation 'androidx.room:room-ktx:2.6.1'
-    implementation libs.androidx.navigation.fragment.ktx
-    implementation libs.androidx.navigation.ui.ktx
     kapt 'androidx.room:room-compiler:2.6.1'
 
     // Retrofit
@@ -83,7 +81,7 @@ dependencies {
     // Testing
     testImplementation 'junit:junit:4.13.2'
 
-    androidTestImplementation 'androidx.junit:junit:1.2.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
 }
