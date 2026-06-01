@@ -11,14 +11,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sincronización pendiente"
+        android:textColor="@android:color/holo_orange_dark"
         android:textSize="22sp"
         android:textStyle="bold" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnSyncNow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sincronizar"
-        android:layout_marginTop="24dp" />
+        android:layout_marginTop="24dp"
+        android:padding="12dp"/>
 
 </LinearLayout>

@@ -14,24 +14,44 @@
         android:layout_marginBottom="16dp" />
 
     <!-- Botón para crear reporte -->
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnCreate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Crear reporte" />
+        android:text="Crear reporte"
+        android:layout_marginTop="16dp"
+        android:padding="12dp"/>
 
     <!-- Botón para abrir detalle -->
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnOpenDetail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Abrir detalle de ejemplo"
-        android:layout_marginTop="8dp"/>
+        android:layout_marginTop="16dp"
+        android:padding="12dp"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/txtEmpty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No hay reportes"
+        android:textSize="18sp"
+        android:visibility="gone"/>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerReports"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="12dp"/>
+
+
 
 </LinearLayout>

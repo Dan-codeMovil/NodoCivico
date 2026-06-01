@@ -1,39 +1,54 @@
-package com.jaimes.nodocivico.ui.adapter
+package com.jaimes.nodocivico.ui.report
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.jaimes.nodocivico.data.model.Report
-import com.jaimes.nodocivico.databinding.ItemReportBinding
+import com.jaimes.nodocivico.R
+import com.jaimes.nodocivico.data.local.ReportEntity
 
 class ReportAdapter(
-    private val reports: List<Report>
+    private val reports: List<ReportEntity>
 ) : RecyclerView.Adapter<ReportAdapter.ReportViewHolder>() {
 
-    inner class ReportViewHolder(
-        private val binding: ItemReportBinding
-    ) : RecyclerView.ViewHolder(binding.root) {
+    class ReportViewHolder(view: View) :
+        RecyclerView.ViewHolder(view) {
 
-        fun bind(report: Report) {
-            binding.tvTitle.text = report.title
-            binding.tvCategory.text = report.category
-        }
+        val txtTitle: TextView =
+            view.findViewById(R.id.txtTitle)
+
+        val txtCategory: TextView =
+            view.findViewById(R.id.txtCategory)
+
+        val txtAddress: TextView =
+            view.findViewById(R.id.txtAddress)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReportViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): ReportViewHolder {
 
-        val binding = ItemReportBinding.inflate(
-            LayoutInflater.from(parent.context),
-            parent,
-            false
-        )
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_report, parent, false)
 
-        return ReportViewHolder(binding)
+        return ReportViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: ReportViewHolder, position: Int) {
-        holder.bind(reports[position])
+    override fun onBindViewHolder(
+        holder: ReportViewHolder,
+        position: Int
+    ) {
+
+        val report = reports[position]
+
+        holder.txtTitle.text = report.title
+        holder.txtCategory.text = report.category
+        holder.txtAddress.text = report.address
     }
 
-    override fun getItemCount(): Int = reports.size
+    override fun getItemCount(): Int {
+        return reports.size
+    }
 }

@@ -12,5 +12,6 @@ data class ReportEntity(
     val title: String,
     val description: String,
     val category: String,
-    val address: String
+    val address: String,
+    val synced: Boolean = false
 )

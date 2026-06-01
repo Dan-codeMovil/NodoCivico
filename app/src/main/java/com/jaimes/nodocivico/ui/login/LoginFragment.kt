@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.button.MaterialButton
 import com.jaimes.nodocivico.R
 
 class LoginFragment : Fragment(R.layout.fragment_login) {
@@ -12,7 +13,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val btnLogin = view.findViewById<Button>(R.id.btnLogin)
+        val btnLogin = view.findViewById<MaterialButton>(R.id.btnLogin)
 
         btnLogin.setOnClickListener {
             findNavController().navigate(

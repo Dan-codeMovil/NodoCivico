@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.button.MaterialButton
 import com.jaimes.nodocivico.R
 
 class ReportDetailFragment : Fragment(R.layout.fragment_report_detail) {
@@ -12,7 +13,7 @@ class ReportDetailFragment : Fragment(R.layout.fragment_report_detail) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val btnEdit = view.findViewById<Button>(R.id.btnEdit)
+        val btnEdit = view.findViewById<MaterialButton>(R.id.btnEdit)
 
         btnEdit.setOnClickListener {
             findNavController().navigate(

@@ -43,6 +43,21 @@
         <action
             android:id="@+id/action_homeFragment_to_syncStatusFragment"
             app:destination="@id/syncStatusFragment" />
+
+        <action
+            android:id="@+id/action_homeFragment_to_reminderFragment"
+            app:destination="@id/reminderFragment" />
+
+        <action
+            android:id="@+id/action_homeFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+
+        <action
+            android:id="@+id/action_homeFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+        ```
+
+
     </fragment>
 
     <!-- Report List -->
@@ -75,14 +90,14 @@
     <!-- Report Create -->
     <fragment
         android:id="@+id/reportCreateFragment"
-        android:name="com.jaimes.nodocivico.ui.report.ReportCreateFragment"
+        android:name="com.jaimes.nodocivico.ui.report.CreateReportFragment"
         android:label="Crear Reporte" />
 
 
     <!-- Report Edit -->
     <fragment
         android:id="@+id/reportEditFragment"
-        android:name="com.jaimes.nodocivico.ui.report.ReportEditFragment"
+        android:name="com.jaimes.nodocivico.ui.report.EditReportFragment"
         android:label="Editar Reporte" />
 
     <!-- Sync -->
@@ -90,5 +105,43 @@
         android:id="@+id/syncStatusFragment"
         android:name="com.jaimes.nodocivico.ui.sync.SyncStatusFragment"
         android:label="Sincronización" />
+
+    <!-- Reminder -->
+    <fragment
+        android:id="@+id/reminderFragment"
+        android:name="com.jaimes.nodocivico.ui.reminder.ReminderFragment"
+        android:label="Reminder">
+
+        <action
+            android:id="@+id/action_reminderFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+
+    </fragment>
+
+    <!-- Profile -->
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.jaimes.nodocivico.ui.profile.ProfileFragment"
+        android:label="Profile">
+
+        <action
+            android:id="@+id/action_profileFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+
+    </fragment>
+
+    <!-- Settings -->
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.jaimes.nodocivico.ui.settings.SettingsFragment"
+        android:label="Settings">
+
+        <action
+            android:id="@+id/action_settingsFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+
+    </fragment>
+    ```
+
 
 </navigation>
