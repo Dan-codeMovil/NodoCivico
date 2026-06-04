@@ -5,5 +5,5 @@ data class Report(
     val title: String,
     val description: String,
     val category: String,
-    val address: String
+    val location: String
 )

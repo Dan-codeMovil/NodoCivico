@@ -1,5 +1,4 @@
 package com.jaimes.nodocivico.data.local
-
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
@@ -10,8 +9,16 @@ data class ReportEntity(
     val id: Int = 0,
 
     val title: String,
+
     val description: String,
+
     val category: String,
-    val address: String,
-    val synced: Boolean = false
+
+    val priority: String = "MEDIA",
+
+    val status: String = "OPEN",
+
+    val location: String,
+
+    val pendingSync: Boolean = false
 )

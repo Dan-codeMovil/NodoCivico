@@ -7,6 +7,10 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.android.material.button.MaterialButton
 import com.jaimes.nodocivico.R
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
+import com.jaimes.nodocivico.data.remote.api.RetrofitClient
+
 
 class SyncStatusFragment : Fragment(R.layout.fragment_sync_status) {
 
@@ -21,17 +25,39 @@ class SyncStatusFragment : Fragment(R.layout.fragment_sync_status) {
 
         btnSyncNow.setOnClickListener {
 
-            tvSyncStatus.text = "Sincronizando..."
+            lifecycleScope.launch {
 
-            Toast.makeText(
-                context,
-                "Sincronización iniciada",
-                Toast.LENGTH_SHORT
-            ).show()
+                try {
 
-            // TEMPORAL
-            tvSyncStatus.text = "Datos sincronizados correctamente"
+                    tvSyncStatus.text = "Sincronizando..."
+
+                    val response =
+                        RetrofitClient.api.getReports()
+
+                    if (response.isSuccessful) {
+
+                        val reports = response.body()
+
+                        tvSyncStatus.text =
+                            "Reportes obtenidos: ${reports?.size}"
+
+                    } else {
+
+                        tvSyncStatus.text =
+                            "Error servidor"
+
+                    }
+
+                } catch (e: Exception) {
+
+                    tvSyncStatus.text =
+                        "Error de conexión"
+
+                }
+
+            }
 
         }
+
     }
 }

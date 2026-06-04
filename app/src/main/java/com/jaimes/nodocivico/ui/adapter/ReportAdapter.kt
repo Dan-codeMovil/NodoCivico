@@ -21,8 +21,8 @@ class ReportAdapter(
         val txtCategory: TextView =
             view.findViewById(R.id.txtCategory)
 
-        val txtAddress: TextView =
-            view.findViewById(R.id.txtAddress)
+        val txtlocation: TextView =
+            view.findViewById(R.id.txtLocation)
     }
 
     override fun onCreateViewHolder(
@@ -45,7 +45,7 @@ class ReportAdapter(
 
         holder.txtTitle.text = report.title
         holder.txtCategory.text = report.category
-        holder.txtAddress.text = report.address
+        holder.txtLocation.text = report.location
     }
 
     override fun getItemCount(): Int {
