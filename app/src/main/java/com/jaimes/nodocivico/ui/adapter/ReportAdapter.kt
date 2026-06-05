@@ -21,7 +21,7 @@ class ReportAdapter(
         val txtCategory: TextView =
             view.findViewById(R.id.txtCategory)
 
-        val txtlocation: TextView =
+        val txtLocation: TextView =
             view.findViewById(R.id.txtLocation)
     }
 
