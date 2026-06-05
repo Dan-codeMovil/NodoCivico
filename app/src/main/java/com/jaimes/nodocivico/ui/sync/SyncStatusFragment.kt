@@ -44,14 +44,14 @@ class SyncStatusFragment : Fragment(R.layout.fragment_sync_status) {
                     } else {
 
                         tvSyncStatus.text =
-                            "Error servidor"
+                            "Servidor no disponible"
 
                     }
 
                 } catch (e: Exception) {
 
                     tvSyncStatus.text =
-                        "Error de conexión"
+                        "Servidor no disponible"
 
                 }
 
