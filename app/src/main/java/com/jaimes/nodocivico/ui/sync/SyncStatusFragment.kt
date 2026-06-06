@@ -10,6 +10,10 @@ import com.jaimes.nodocivico.R
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
 import com.jaimes.nodocivico.data.remote.api.RetrofitClient
+import com.jaimes.nodocivico.data.local.DatabaseProvider
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
+
 
 
 class SyncStatusFragment : Fragment(R.layout.fragment_sync_status) {
@@ -38,8 +42,32 @@ class SyncStatusFragment : Fragment(R.layout.fragment_sync_status) {
 
                         val reports = response.body()
 
-                        tvSyncStatus.text =
-                            "Reportes obtenidos: ${reports?.size}"
+                        if (reports != null) {
+
+                            val db =
+                                DatabaseProvider.getDatabase(requireContext())
+
+                            val dao = db.reportDao()
+
+                            withContext(Dispatchers.IO) {
+
+                                reports.forEach { report ->
+
+                                    dao.insertReport(report)
+
+                                }
+
+                            }
+
+                            tvSyncStatus.text =
+                                "Sincronización completada"
+
+                        } else {
+
+                            tvSyncStatus.text =
+                                "No se recibieron datos"
+
+                        }
 
                     } else {
 

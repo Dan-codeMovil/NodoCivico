@@ -9,7 +9,8 @@ import com.jaimes.nodocivico.R
 import com.jaimes.nodocivico.data.local.ReportEntity
 
 class ReportAdapter(
-    private val reports: List<ReportEntity>
+    private val reports: List<ReportEntity>,
+    private val onItemClick: (ReportEntity) -> Unit
 ) : RecyclerView.Adapter<ReportAdapter.ReportViewHolder>() {
 
     class ReportViewHolder(view: View) :
@@ -46,6 +47,12 @@ class ReportAdapter(
         holder.txtTitle.text = report.title
         holder.txtCategory.text = report.category
         holder.txtLocation.text = report.location
+
+        holder.itemView.setOnClickListener {
+
+            onItemClick(report)
+
+        }
     }
 
     override fun getItemCount(): Int {

@@ -10,6 +10,15 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.button.MaterialButton
 import com.jaimes.nodocivico.R
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.jaimes.nodocivico.data.local.ReportEntity
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
+import com.jaimes.nodocivico.data.local.DatabaseProvider
+
+
+
 
 class ReportListFragment : Fragment(R.layout.fragment_report_list) {
 
@@ -25,6 +34,36 @@ class ReportListFragment : Fragment(R.layout.fragment_report_list) {
         progressBar.visibility = View.GONE
         txtEmpty.visibility = View.VISIBLE
         Toast.makeText(context, "Error de conexión", Toast.LENGTH_SHORT).show()
+
+
+        val recyclerReports =
+            view.findViewById<RecyclerView>(
+                R.id.recyclerReports
+            )
+
+        recyclerReports.layoutManager =
+            LinearLayoutManager(requireContext())
+
+        lifecycleScope.launch {
+
+            val db =
+                DatabaseProvider.getDatabase(requireContext())
+
+            val reports =
+                db.reportDao().getAllReports()
+
+            val adapter = ReportAdapter(reports) { report ->
+
+                findNavController().navigate(
+                    R.id.action_reportListFragment_to_reportDetailFragment
+                )
+
+            }
+
+            recyclerReports.adapter = adapter
+
+        }
+
 
         val btnCreate = view.findViewById<MaterialButton>(R.id.btnCreate)
         val btnOpenDetail = view.findViewById<MaterialButton>(R.id.btnOpenDetail)
