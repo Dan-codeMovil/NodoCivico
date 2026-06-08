@@ -55,9 +55,6 @@
         <action
             android:id="@+id/action_homeFragment_to_settingsFragment"
             app:destination="@id/settingsFragment" />
-        ```
-
-
     </fragment>
 
     <!-- Report List -->
@@ -74,6 +71,9 @@
             android:id="@+id/action_reportListFragment_to_reportCreateFragment"
             app:destination="@id/reportCreateFragment" />
 
+        <action
+            android:id="@+id/action_reportListFragment_to_reportEditFragment"
+            app:destination="@id/reportEditFragment" />
     </fragment>
 
     <!-- Report Detail -->
@@ -93,12 +93,16 @@
         android:name="com.jaimes.nodocivico.ui.report.CreateReportFragment"
         android:label="Crear Reporte" />
 
-
     <!-- Report Edit -->
     <fragment
         android:id="@+id/reportEditFragment"
         android:name="com.jaimes.nodocivico.ui.report.EditReportFragment"
-        android:label="Editar Reporte" />
+        android:label="Editar Reporte">
+
+        <argument
+            android:name="reportId"
+            app:argType="integer" />
+    </fragment>
 
     <!-- Sync -->
     <fragment
@@ -115,7 +119,6 @@
         <action
             android:id="@+id/action_reminderFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
-
     </fragment>
 
     <!-- Profile -->
@@ -127,7 +130,6 @@
         <action
             android:id="@+id/action_profileFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
-
     </fragment>
 
     <!-- Settings -->
@@ -139,9 +141,6 @@
         <action
             android:id="@+id/action_settingsFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
-
     </fragment>
-    ```
-
 
 </navigation>

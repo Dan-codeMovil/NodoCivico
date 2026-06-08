@@ -2,23 +2,17 @@ package com.jaimes.nodocivico.ui.report
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.button.MaterialButton
-import com.jaimes.nodocivico.R
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.jaimes.nodocivico.data.local.ReportEntity
-import androidx.lifecycle.lifecycleScope
-import kotlinx.coroutines.launch
+import com.google.android.material.button.MaterialButton
+import com.jaimes.nodocivico.R
 import com.jaimes.nodocivico.data.local.DatabaseProvider
-
-
-
+import kotlinx.coroutines.launch
 
 class ReportListFragment : Fragment(R.layout.fragment_report_list) {
 
@@ -31,15 +25,8 @@ class ReportListFragment : Fragment(R.layout.fragment_report_list) {
         val txtEmpty =
             view.findViewById<TextView>(R.id.txtEmpty)
 
-        progressBar.visibility = View.GONE
-        txtEmpty.visibility = View.VISIBLE
-        Toast.makeText(context, "Error de conexión", Toast.LENGTH_SHORT).show()
-
-
         val recyclerReports =
-            view.findViewById<RecyclerView>(
-                R.id.recyclerReports
-            )
+            view.findViewById<RecyclerView>(R.id.recyclerReports)
 
         recyclerReports.layoutManager =
             LinearLayoutManager(requireContext())
@@ -52,37 +39,38 @@ class ReportListFragment : Fragment(R.layout.fragment_report_list) {
             val reports =
                 db.reportDao().getAllReports()
 
+            progressBar.visibility = View.GONE
+
+            txtEmpty.visibility =
+                if (reports.isEmpty()) View.VISIBLE
+                else View.GONE
+
+            ReportListFragmentDirections
+
             val adapter = ReportAdapter(reports) { report ->
 
-                findNavController().navigate(
-                    R.id.action_reportListFragment_to_reportDetailFragment
-                )
+                val action =
+                    ReportListFragmentDirections
+                        .actionReportListFragmentToReportEditFragment(
+                            report.id
+                        )
+
+                findNavController().navigate(action)
 
             }
 
             recyclerReports.adapter = adapter
-
         }
 
+        val btnCreate =
+            view.findViewById<MaterialButton>(R.id.btnCreate)
 
-        val btnCreate = view.findViewById<MaterialButton>(R.id.btnCreate)
-        val btnOpenDetail = view.findViewById<MaterialButton>(R.id.btnOpenDetail)
-
-        // Ir a crear reporte
         btnCreate.setOnClickListener {
+
             findNavController().navigate(
                 R.id.action_reportListFragment_to_reportCreateFragment
             )
+
         }
-
-        // Ir a detalle
-        btnOpenDetail.setOnClickListener {
-            findNavController().navigate(
-                R.id.action_reportListFragment_to_reportDetailFragment
-            )
-        }
-
-
-
     }
 }
